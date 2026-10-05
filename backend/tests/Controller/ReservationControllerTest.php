@@ -2,7 +2,7 @@
 
 namespace App\Tests\Controller;
 
-use App\Booking\Domain\Reservation;
+use App\Reservation\Domain\Entity\Reservation;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
@@ -84,6 +84,17 @@ final class ReservationControllerTest extends WebTestCase
 
         $this->request('PUT', '/api/reservations/'.$created['id'], $this->payload());
         self::assertResponseStatusCodeSame(409);
+    }
+
+    public function testDelete(): void
+    {
+        $created = $this->request('POST', '/api/reservations', $this->payload());
+
+        $this->request('DELETE', '/api/reservations/'.$created['id']);
+        self::assertResponseStatusCodeSame(204);
+
+        $this->request('GET', '/api/reservations/'.$created['id']);
+        self::assertResponseStatusCodeSame(404);
     }
 
     public function testShowUnknownReservationReturns404(): void
