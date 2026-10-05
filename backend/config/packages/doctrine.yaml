@@ -14,12 +14,12 @@ doctrine:
             Doctrine\DBAL\Platforms\PostgreSQLPlatform: identity
         auto_mapping: true
         mappings:
-            App:
-                type: attribute
+            Booking:
+                type: xml
                 is_bundle: false
-                dir: '%kernel.project_dir%/src/Entity'
-                prefix: 'App\Entity'
-                alias: App
+                dir: '%kernel.project_dir%/src/Booking/Infrastructure/Persistence/Doctrine/Mapping'
+                prefix: 'App\Booking\Domain'
+                alias: Booking
 
 when@test:
     doctrine:

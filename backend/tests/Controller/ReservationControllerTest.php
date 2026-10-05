@@ -2,7 +2,7 @@
 
 namespace App\Tests\Controller;
 
-use App\Entity\Reservation;
+use App\Booking\Domain\Reservation;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;

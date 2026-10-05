@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Dto;
+namespace App\Booking\UI\Http\Request;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
